@@ -66,8 +66,10 @@ ThemeData _buildShrineTheme(){
     errorColor: kShrineErrorRed,
     textTheme: _buildShrineTextTheme(base.textTheme),
     primaryTextTheme: _buildShrineTextTheme(base.primaryTextTheme),
-    accentTextTheme: _buildShrineTextTheme(base.accentTextTheme)
-    // TODO: Add the icon themes (103)
+    accentTextTheme: _buildShrineTextTheme(base.accentTextTheme),
+    primaryIconTheme: base.iconTheme.copyWith(
+        color: kShrineBrown900
+    )
     // TODO: Decorate the inputs (103)
   );
 }
