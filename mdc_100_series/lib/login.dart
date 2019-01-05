@@ -86,6 +86,9 @@ class _LoginPageState extends State<LoginPage> {
                     _usernameController.clear();
                     _passwordController.clear();
                   },
+                  shape: BeveledRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(7.0)),
+                  ),
                 ),
                 // TODO: Show the next page (101)
                 RaisedButton(
@@ -94,6 +97,9 @@ class _LoginPageState extends State<LoginPage> {
                   onPressed: (){
                     Navigator.pop(context);
                   },
+                  shape: BeveledRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(7.0)),
+                  ),
                 )
               ],
             ),
