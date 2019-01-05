@@ -76,7 +76,7 @@ class HomePage extends StatelessWidget {
             
           ],
         ),
-
+        elevation: 0.0,
       );
     }).toList();
   }
