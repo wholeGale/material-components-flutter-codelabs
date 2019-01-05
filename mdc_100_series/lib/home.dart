@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import 'package:Shrine/supplemental/asymmetric_view.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -89,6 +90,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       // TODO: Add app bar (102)
       appBar: AppBar(
+        brightness: Brightness.light,
         /**
          * Leading and trailing 是表示方向的用语，指的是与语言无关的文本行的开头和结尾。
          * 当在 LTR （从左向右）的语言中时，例如英文， leading 指的是 左 而 trailing 指的是 右 。
@@ -131,15 +133,7 @@ class HomePage extends StatelessWidget {
           )
         ],
       ),
-      // TODO: Add a grid view (102).   GridView: A scrollable, 2D array of widgets.
-      body: GridView.count(
-          //crossAxisCount：指定每横行展示多少条目。这里我们想要两列。
-          crossAxisCount: 2,
-          padding: EdgeInsets.all(16.0),
-          //childAspectRatio： 以宽高比（宽除以高）的形式定义了条目的大小。
-          childAspectRatio: 8.0 / 9.0,
-          children: _buildGridCards(context),
-      ),
+      body: AsymmetricView(products: ProductsRepository.loadProducts(Category.all))
     );
   }
 }
