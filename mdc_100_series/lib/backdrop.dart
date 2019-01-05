@@ -35,6 +35,7 @@ class Backdrop extends StatefulWidget {
 class _BackdropState extends State<Backdrop>
     with SingleTickerProviderStateMixin {
   final GlobalKey _backdropKey = GlobalKey(debugLabel: 'Backdrop');
+
   // TODO: Add AnimationController widget (104)
 
   // TODO: Add BuildContext and BoxConstraints parameters to _buildStack (104)
@@ -44,7 +45,7 @@ class _BackdropState extends State<Backdrop>
       key: _backdropKey,
       children: <Widget>[
         widget.backLayer,
-        widget.frontLayer,
+        _FrontLayer(child: widget.frontLayer),
       ],
     );
   }
@@ -86,6 +87,36 @@ class _BackdropState extends State<Backdrop>
       appBar: appBar,
       // TODO: Return a LayoutBuilder widget (104)
       body: _buildStack(),
+    );
+  }
+
+}
+
+class _FrontLayer extends StatelessWidget {
+  // TODO: Add on-tap callback (104)
+  final Widget child;
+
+  const _FrontLayer({
+    Key key,
+    this.child
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      elevation: 16.0,
+      shape: BeveledRectangleBorder(
+        borderRadius: BorderRadius.only(topLeft: Radius.circular(46.0))
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          // TODO: Add a GestureDetector (104)
+          Expanded(
+            child: child,
+          )
+        ],
+      ),
     );
   }
 
