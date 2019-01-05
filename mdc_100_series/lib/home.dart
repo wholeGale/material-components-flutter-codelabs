@@ -85,55 +85,6 @@ class HomePage extends StatelessWidget {
   // TODO: Add a variable for Category (104)
   @override
   Widget build(BuildContext context) {
-    // TODO: Return an AsymmetricView (104)
-    // TODO: Pass Category variable to AsymmetricView (104)
-    return Scaffold(
-      // TODO: Add app bar (102)
-      appBar: AppBar(
-        brightness: Brightness.light,
-        /**
-         * Leading and trailing 是表示方向的用语，指的是与语言无关的文本行的开头和结尾。
-         * 当在 LTR （从左向右）的语言中时，例如英文， leading 指的是 左 而 trailing 指的是 右 。
-         * 在 RTL （从右向左）的语言中时，例如阿拉伯语， leading 指的是 右 而 trailing 指的是 左 。
-         */
-        // TODO: Add buttons and title (102)
-        leading: IconButton(
-            icon: Icon(
-                Icons.menu,
-              /**
-               * 对于 Icon 类，SemanticLabel 通常用于添加无障碍信息。很像 Android's Content Labels 和 iOS' UIAccessibility accessibilityLabel 。
-               * 你在很多类中都能发现。为那些使用屏幕阅读的人解释按钮的作用，使用 semanticLabel 中的内容会更好。
-               */
-              semanticLabel: 'menu',
-            ),
-            onPressed: (){
-              print('Menu button');
-        }),
-        title: Text('SHRINE'),
-
-        // TODO: Add trailing buttons (102)
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(
-              Icons.search,
-              semanticLabel: 'search',
-            ),
-            onPressed: (){
-              print('Search button');
-            },
-          ),
-          IconButton(
-            icon: Icon(
-              Icons.tune,
-              semanticLabel: 'filter',
-            ),
-            onPressed: (){
-              print('Filter button');
-            },
-          )
-        ],
-      ),
-      body: AsymmetricView(products: ProductsRepository.loadProducts(Category.all))
-    );
+    return AsymmetricView(products: ProductsRepository.loadProducts(Category.all));
   }
 }
