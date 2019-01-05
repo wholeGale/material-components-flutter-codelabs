@@ -33,10 +33,8 @@ class HomePage extends StatelessWidget {
       return Card(
         // TODO: Adjust card heights (103)
         child: Column(
-          // TODO: Center items on the card (103)
-
-          //CrossAxisAlignment.start: 头部对齐
-          crossAxisAlignment: CrossAxisAlignment.start,
+          //CrossAxisAlignment.start: 头部对齐, CrossAxisAlignment.center:居中对齐
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             //图片形状由 AspectRatio 决定，而不是提供的图片本身的形状
             //AspectRatio : A widget that attempts to size the child to a specific aspect ratio.
@@ -54,19 +52,22 @@ class HomePage extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.fromLTRB(16.0, 12.0, 16.0, 8.0),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        product.name,
-                        style: themeData.textTheme.title,
+                        product == null ? '': product.name,
+                        style: themeData.textTheme.button,
+                        softWrap: false,
+                        overflow: TextOverflow.ellipsis,
                         maxLines: 1,
                       ),
                       SizedBox(
-                        height: 8.0,
+                        height: 4.0,
                       ),
                       Text(
-                          numberFormat.format(product.price),
-                          style: themeData.textTheme.body2,
+                          product == null ? '': numberFormat.format(product.price),
+                          style: themeData.textTheme.caption,
                       ),
                     ],
                   ),
