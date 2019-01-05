@@ -16,6 +16,7 @@ import 'package:flutter/material.dart';
 
 import 'home.dart';
 import 'login.dart';
+import 'colors.dart';
 
 // TODO: Convert ShrineApp to stateful widget (104)
 class ShrineApp extends StatelessWidget {
@@ -31,7 +32,7 @@ class ShrineApp extends StatelessWidget {
       // TODO: Change backLayer field value to CategoryMenuPage (104)
       initialRoute: '/login',
       onGenerateRoute: _getRoute,
-      // TODO: Add a theme (103)
+      theme: _kShrineTheme,
     );
   }
 
@@ -48,5 +49,23 @@ class ShrineApp extends StatelessWidget {
   }
 }
 
-// TODO: Build a Shrine Theme (103)
-// TODO: Build a Shrine Text Theme (103)
+final ThemeData _kShrineTheme = _buildShrineTheme();
+
+ThemeData _buildShrineTheme(){
+  //Flutter 有一些内置的主题，light theme 就是其中之一，
+  //使用 light theme ，然后替换其中的一些值来达到自定义应用主题的效果
+  final ThemeData base = ThemeData.light();
+  //调用 copyWith()将其作用于默认的 light ThemeData 中，然后传递一些自定的参数进去
+  return base.copyWith(
+    accentColor: kShrineBrown900,
+    primaryColor: kShrinePink100,
+    buttonColor: kShrinePink100,
+    scaffoldBackgroundColor: kShrineBackgroundWhite,
+    cardColor: kShrineBackgroundWhite,
+    textSelectionColor: kShrinePink100,
+    errorColor: kShrineErrorRed,
+    // TODO: Add the text themes (103)
+    // TODO: Add the icon themes (103)
+    // TODO: Decorate the inputs (103)
+  );
+}
